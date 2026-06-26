@@ -35,3 +35,11 @@ CREATE INDEX idx_exams_subject_id ON exams(subject_id);
 CREATE INDEX idx_exam_questions_exam_id_order ON exam_questions(exam_id, question_order);
 CREATE INDEX idx_collections_subject_id ON collections(subject_id);
 CREATE INDEX idx_collection_questions_collection_id ON collection_questions(collection_id);
+
+
+-- стоит добавить порядок вопросов как в test_questions
+ALTER TABLE collection_questions ADD COLUMN question_order INTEGER NOT NULL DEFAULT 0;
+
+-- и индекс
+CREATE INDEX idx_collection_questions_collection_id_order
+    ON collection_questions(collection_id, question_order);

@@ -10,6 +10,10 @@ type Section struct {
 }
 
 type SectionRepository interface {
-	GetSectionBySubjectID(ctx context.Context, subjectID int64) ([]*Section, error)
+	GetSectionsBySubjectID(ctx context.Context, subjectID int64) ([]*Section, error)
 	GetSectionByID(ctx context.Context, id int64) (*Section, error)
+}
+
+type SectionUseCase interface {
+	GetSectionsBySubjectID(ctx context.Context, subjectID int64) ([]*Section, error)
 }

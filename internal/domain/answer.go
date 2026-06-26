@@ -10,7 +10,7 @@ type Answer struct {
 }
 
 type AnswerRepository interface {
-	GetByQuestionIDs(ctx context.Context, questionIDs []int64) ([]*Answer, error)
-	GetByQuestionID(ctx context.Context, questionID int64) ([]*Answer, error)
-	GetByID(ctx context.Context, id int64) (*Answer, error)
+	GetAnswersByQuestionIDs(ctx context.Context, questionIDs []int64) ([]*Answer, error)
+	GetAnswersByQuestionID(ctx context.Context, questionID int64) ([]*Answer, error)
+	GetAnswerByID(ctx context.Context, id int64) (*Answer, error)
 }

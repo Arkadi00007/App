@@ -7,6 +7,7 @@ import (
 
 type Test struct {
 	ID             int64     `json:"id"`
+	SubjectID      int64     `json:"subject_id"`
 	SectionID      int64     `json:"section_id"`
 	Title          string    `json:"title"`
 	Description    string    `json:"description"`
@@ -23,4 +24,8 @@ const (
 type TestRepository interface {
 	GetTestsBySectionID(ctx context.Context, sectionID int64) ([]*Test, error)
 	GetTestByID(ctx context.Context, id int64) (*Test, error)
+}
+
+type TestListUseCase interface {
+	GetTestsBySectionID(ctx context.Context, sectionID int64) ([]*Test, error)
 }

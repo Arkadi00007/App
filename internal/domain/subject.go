@@ -5,7 +5,7 @@ import "context"
 type Subject struct {
 	ID          int64  `json:"id"`
 	Name        string `json:"name"`
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 }
 
 type SubjectRepository interface {
@@ -13,7 +13,7 @@ type SubjectRepository interface {
 	GetSubjectByID(ctx context.Context, id int64) (*Subject, error)
 }
 
-type SubjectService interface {
-	GetAll(ctx context.Context) ([]*Subject, error)
-	GetByID(ctx context.Context, id int64) (*Subject, error)
+type SubjectUseCase interface {
+	GetAllSubjects(ctx context.Context) ([]*Subject, error)
+	GetSubjectByID(ctx context.Context, id int64) (*Subject, error)
 }

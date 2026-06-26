@@ -18,10 +18,10 @@ type UserAnswer struct {
 }
 
 type UserAnswerRepository interface {
-	Create(ctx context.Context, answer *UserAnswer) error
+	CreateUserAnswer(ctx context.Context, answer *UserAnswer) error
 	// обновляем существующий ответ (если студент поменял ответ на вопрос)
-	Update(ctx context.Context, answer *UserAnswer) error
+	UpdateUserAnswer(ctx context.Context, answer *UserAnswer) error
 	// ищем — отвечал ли уже студент на этот вопрос в этой попытке
-	GetByAttemptAndQuestion(ctx context.Context, attemptID, questionID int64) (*UserAnswer, error)
-	GetByAttemptID(ctx context.Context, attemptID int64) ([]*UserAnswer, error)
+	GetUserAnswerByAttemptAndQuestion(ctx context.Context, attemptID, questionID int64) (*UserAnswer, error)
+	GetUserAnswersByAttemptID(ctx context.Context, attemptID int64) ([]*UserAnswer, error)
 }
